@@ -2,9 +2,6 @@ import { Liveblocks } from "@liveblocks/node";
 import { NextRequest } from "next/server";
 import { getRandomUser } from "../../database";
 
-// Authenticating your Liveblocks application
-// https://liveblocks.io/docs/authentication
-
 const liveblocks = new Liveblocks({
   secret: process.env.LIVEBLOCKS_SECRET_KEY as string,
 });
@@ -20,7 +17,7 @@ export async function POST(request: NextRequest) {
   });
 
   // Use a naming pattern to allow access to rooms with a wildcard
-  session.allow(`liveblocks:examples:*`, session.FULL_ACCESS);
+  session.allow(`*`, session.FULL_ACCESS);
 
   // Authorize the user and return the result
   const { body, status } = await session.authorize();

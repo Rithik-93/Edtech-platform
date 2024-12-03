@@ -24,5 +24,5 @@ export function Room({ children }: { children: ReactNode }) {
 }
 
 function generateRandomRoomId(): string {
-  return `liveblocks:examples:${Math.random().toString(36).substring(2, 10)}`;
+  return `${Math.random().toString(36).substring(2, 10)}`;
 }
